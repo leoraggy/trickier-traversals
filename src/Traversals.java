@@ -53,9 +53,13 @@ public class Traversals {
    * @param <T>  the type of values stored in the tree
    * @return a post-order traversal string, or an empty string if the tree is null
    */
-  public static <T> String buildPostOrderString(TreeNode<T> node) {
-    return null;
-  }
+ public static <T> String buildPostOrderString(TreeNode<T> node) {
+    if (node == null) {
+        return "";
+    }
+
+    return buildPostOrderString(node.left) + buildPostOrderString(node.right)+ node.value;
+}
 
   /**
    * Collects the values of all nodes in the tree level by level, from top to bottom.
